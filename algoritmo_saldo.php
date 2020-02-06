@@ -18,6 +18,37 @@
   Contributors provide an express
   grant of patent rights.
   --------------------------------------
+
+
+
+
+
+------------------------------------------- 
+$array = ["foo" => "bar", "bar" => "foo"];
+echo $array["foo"];
+-------------------------------------------
+$arrayee = ["foyo", "bar", "bar", "foo"];
+echo $arrayee[0];
+-------------------------------------------
+
+
+
+function caso_especial_mil() {
+    $texto=["decenas_mil" => "", "unidades_mil" => "", "mil" => "mil", "centenas" => "", "decenas" => "", "unidades" => ""];
+    return $texto;
+}
+$arreglo = caso_especial_mil();
+
+
+function caso_especial_mil() {
+    $texto['decenas_mil'] = "";
+    $texto['unidades_mil'] = "";
+    $texto['mil'] = "mil";
+    $texto['centenas'] = "";
+    $texto['decenas'] = "";
+    $texto['unidades'] = "";
+    return $texto;
+}
  */
 
 #///////////////////////////////////////////////////////////////////////////////
@@ -42,19 +73,14 @@ return $texto;
 }
 
 function caso_especial_mil() {
-    $texto['decenas_mil'] = "";
-    $texto['unidades_mil'] = "";
-    $texto['mil'] = "mil";
-    $texto['centenas'] = "";
-    $texto['decenas'] = "";
-    $texto['unidades'] = "";
+    $texto=["decenas_mil" => "", "unidades_mil" => "", "mil" => "mil", "centenas" => "", "decenas" => "", "unidades" => ""];
     return $texto;
 }
 
 function caso_especial_cero() {
     $texto['decenas_mil'] = "";
     $texto['unidades_mil'] = "";
-    $texto['mil'] = "mil";
+    $texto['mil'] = "";
     $texto['centenas'] = "";
     $texto['decenas'] = "";
     $texto['unidades'] = "cero";
