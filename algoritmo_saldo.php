@@ -555,7 +555,6 @@ function rango_300($saldo) {
 function rango_400($saldo) {
     if ($saldo >= 400) {
         $salida['texto'] = cuatrocientos();
-        $saldo -= 400;
         $salida['numero'] = $saldo - 400;
         return $salida;
     }

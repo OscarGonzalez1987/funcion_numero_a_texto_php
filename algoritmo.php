@@ -1,7 +1,7 @@
 <?php
 include 'algoritmo_saldo.php';
 
-$saldo = 99920;
+$saldo = 99422;
 $texto = algoritmo_saldo($saldo);
 echo $texto['decenas_mil'];
 echo $texto['unidades_mil'];
