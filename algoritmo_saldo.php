@@ -40,13 +40,18 @@ function caso_especial_mil() {
 $arreglo = caso_especial_mil();
 
 
-function caso_especial_mil() {
+function caso_especial_cero() {
+    $texto=["decenas_mil" => "", "unidades_mil" => "", "mil" => "", "centenas" => "", "decenas" => "", "unidades" => "cero"];
+    return $texto;
+}
+
+function caso_especial_cero() {
     $texto['decenas_mil'] = "";
     $texto['unidades_mil'] = "";
-    $texto['mil'] = "mil";
+    $texto['mil'] = "";
     $texto['centenas'] = "";
     $texto['decenas'] = "";
-    $texto['unidades'] = "";
+    $texto['unidades'] = "cero";
     return $texto;
 }
  */
@@ -58,7 +63,7 @@ function algoritmo_saldo($saldo) {
 if ($saldo == 0) {
     $texto = caso_especial_cero();
 } else {
-    $texto = ["decenas_mil", "unidades_mil", "mil", "centenas", "decenas", "unidades"];
+    // $texto = ["decenas_mil", "unidades_mil", "mil", "centenas", "decenas", "unidades"];
     if ($saldo == 1000) {
         $texto = caso_especial_mil();
     } elseif ($saldo > 999) {
@@ -78,27 +83,22 @@ function caso_especial_mil() {
 }
 
 function caso_especial_cero() {
-    $texto['decenas_mil'] = "";
-    $texto['unidades_mil'] = "";
-    $texto['mil'] = "";
-    $texto['centenas'] = "";
-    $texto['decenas'] = "";
-    $texto['unidades'] = "cero";
+    $texto=["decenas_mil" => "", "unidades_mil" => "", "mil" => "", "centenas" => "", "decenas" => "", "unidades" => "cero"];
     return $texto;
 }
 
 function blq_Sup_999($saldo) {
-    $texto['mil'] = "mil ";
-    $medio_dm = bloque_10000($saldo);
-    $texto['decenas_mil'] = $medio_dm['texto'];
-    $medio_um = bloque_1000($medio_dm['numero']);
-    $texto['unidades_mil'] = $medio_um['texto'];
-    $medio_c = bloque_100($medio_um['numero']);
-    $texto['centenas'] = $medio_c['texto'];
-    $medio_d = bloque_10($medio_c['numero']);
-    $texto['decenas'] = $medio_d['texto'];
-    $medio_u = bloque_0($medio_d['numero']);
-    $texto['unidades'] = $medio_u['texto'];
+	$texto['mil'] = "mil ";
+	$medio_dm = bloque_10000($saldo);
+	$texto['decenas_mil'] = $medio_dm['texto'];
+	$medio_um = bloque_1000($medio_dm['numero']);
+	$texto['unidades_mil'] = $medio_um['texto'];
+	$medio_c = bloque_100($medio_um['numero']);
+	$texto['centenas'] = $medio_c['texto'];
+	$medio_d = bloque_10($medio_c['numero']);
+	$texto['decenas'] = $medio_d['texto'];
+	$medio_u = bloque_0($medio_d['numero']);
+	$texto['unidades'] = $medio_u['texto'];
     return $texto;
 }
 
