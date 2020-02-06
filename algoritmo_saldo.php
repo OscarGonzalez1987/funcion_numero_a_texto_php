@@ -216,7 +216,7 @@ function bloque_100($saldo) {
 
 function bloque_10($saldo) {
     if ($saldo >= 10 && $saldo <= 19) {
-        rango_especial_10($saldo);
+        $salida = rango_especial_10($saldo);
     } elseif ($saldo >= 20 && $saldo <= 29) {
         $salida = rango_especial_20($saldo);
     } elseif ($saldo >= 30 && $saldo <= 39) { $salida = rango_30($saldo);
@@ -528,8 +528,7 @@ function rango_100($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 100) {
         $salida['texto'] = ciento();
-        $saldo -= 100;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 100;
     }
     return $salida;
 }
@@ -537,8 +536,7 @@ function rango_100($saldo) {
 function rango_200($saldo) {
     if ($saldo >= 200) {
         $salida['texto'] = doscientos();
-        $saldo -= 200;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 200;
         return $salida;
     }
 }
@@ -546,8 +544,7 @@ function rango_200($saldo) {
 function rango_300($saldo) {
     if ($saldo >= 300) {
         $salida['texto'] = trescientos();
-        $saldo -= 300;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 300;
         return $salida;
     }
 }
