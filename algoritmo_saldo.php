@@ -205,7 +205,9 @@ function bloque_100($saldo) {
         $salida = rango_800($saldo);
     } elseif ($saldo >= 900 && $saldo <= 999) {
         $salida = rango_900($saldo);
-    } else { $salida['numero'] = $saldo; $salida['texto'] = "";
+    } else {
+        $salida['numero'] = $saldo;
+        $salida['texto'] = "";
     } return $salida;
 }
 
@@ -216,7 +218,7 @@ function bloque_10($saldo) {
     if ($saldo >= 10 && $saldo <= 19) {
         rango_especial_10($saldo);
     } elseif ($saldo >= 20 && $saldo <= 29) {
-        rango_especial_20($saldo);
+        $salida = rango_especial_20($saldo);
     } elseif ($saldo >= 30 && $saldo <= 39) { $salida = rango_30($saldo);
     } elseif ($saldo >= 40 && $saldo <= 49) { $salida = rango_40($saldo);
     } elseif ($saldo >= 50 && $saldo <= 59) { $salida = rango_50($saldo);
@@ -259,8 +261,6 @@ function rango_especial_20($saldo) {
 
 
 
-
-#/////////////////////////////////////////////
 
 function bloque_0($saldo) {
     if ($saldo == 1) {
@@ -436,7 +436,6 @@ function rango_90000($saldo) {
     return $salida;
 }
 
-#/////////////////////////////////////////////
 
 function rango_1000($saldo) {
     if ($saldo == 1000) {
@@ -522,7 +521,6 @@ function rango_9000($saldo) {
     return $salida;
 }
 
-#/////////////////////////////////////////////
 
 function rango_100($saldo) {
     if ($saldo == 100) {
@@ -558,7 +556,7 @@ function rango_400($saldo) {
     if ($saldo >= 400) {
         $salida['texto'] = cuatrocientos();
         $saldo -= 400;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 400;
         return $salida;
     }
 }
@@ -566,8 +564,7 @@ function rango_400($saldo) {
 function rango_500($saldo) {
     if ($saldo >= 500) {
         $salida['texto'] = quinientos();
-        $saldo -= 500;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 500;
         return $salida;
     }
 }
@@ -575,8 +572,7 @@ function rango_500($saldo) {
 function rango_600($saldo) {
     if ($saldo >= 600) {
         $salida['texto'] = seiscientos();
-        $saldo -= 600;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 600;
         return $salida;
     }
 }
@@ -584,8 +580,7 @@ function rango_600($saldo) {
 function rango_700($saldo) {
     if ($saldo >= 700) {
         $salida['texto'] = setecientos();
-        $saldo -= 700;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 700;
         return $salida;
     }
 }
@@ -593,8 +588,7 @@ function rango_700($saldo) {
 function rango_800($saldo) {
     if ($saldo >= 800) {
         $salida['texto'] = ochocientos();
-        $saldo -= 800;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 800;
         return $salida;
     }
 }
@@ -602,13 +596,11 @@ function rango_800($saldo) {
 function rango_900($saldo) {
     if ($saldo >= 900) {
         $salida['texto'] = novecientos();
-        $saldo -= 900;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 900;
         return $salida;
     }
 }
 
-#/////////////////////////////////////////////
 
 function rango_30($saldo) {
     if ($saldo == 30) {
@@ -616,8 +608,7 @@ function rango_30($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 30) {
         $salida['texto'] = treinta_y();
-        $saldo -= 30;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 30;
     }
     return $salida;
 }
@@ -628,8 +619,7 @@ function rango_40($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 40) {
         $salida['texto'] = cuarenta_y();
-        $saldo -= 40;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 40;
     }
     return $salida;
 }
@@ -640,8 +630,7 @@ function rango_50($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 50) {
         $salida['texto'] = cincuenta_y();
-        $saldo -= 50;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 50;
     }
     return $salida;
 }
@@ -652,8 +641,7 @@ function rango_60($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 60) {
         $salida['texto'] = sesenta_y();
-        $saldo -= 60;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 60;
     }
     return $salida;
 }
@@ -664,8 +652,7 @@ function rango_70($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 70) {
         $salida['texto'] = setenta_y();
-        $saldo -= 70;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 70;
     }
     return $salida;
 }
@@ -676,8 +663,7 @@ function rango_80($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 80) {
         $salida['texto'] = ochenta_y();
-        $saldo -= 80;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 80;
     }
     return $salida;
 }
@@ -688,13 +674,11 @@ function rango_90($saldo) {
         $salida['numero'] = 0;
     } elseif ($saldo > 90) {
         $salida['texto'] = noventa_y();
-        $saldo -= 90;
-        $salida['numero'] = $saldo;
+        $salida['numero'] = $saldo - 90;
     }
     return $salida;
 }
 
-#/////////////////////////////////////////////
 
 function mil() {
     $texto = "mil ";
@@ -748,13 +732,11 @@ function ochocientos() {
 
 function novecientos() {
     $texto = "novecientos ";
-#/////////////////////////////////////////////
     return $texto;
 }
 
 function ciento() {
     $texto = "ciento ";
-#/////////////////////////////////////////////
     return $texto;
 }
 
@@ -805,7 +787,6 @@ function dieciocho() {
 
 function diecinueve() {
     $texto = "diecinueve ";
-#/////////////////////////////////////////////
     return $texto;
 }
 
@@ -856,7 +837,6 @@ function ventiocho() {
 
 function ventinueve() {
     $texto = "ventinueve ";
-#/////////////////////////////////////////////
     return $texto;
 }
 
@@ -927,14 +907,11 @@ function noventa() {
 
 function noventa_y() {
     $texto = "noventa y ";
-
-#/////////////////////////////////////////////
     return $texto;
 }
 
 function cero() {
     $texto = "cero ";
-#/////////////////////////////////////////////
     return $texto;
 }
 
