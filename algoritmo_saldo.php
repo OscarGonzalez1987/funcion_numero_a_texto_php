@@ -103,17 +103,17 @@ function blq_Sup_999($saldo) {
 }
 
 function blq_Inf_999($saldo) {
-    $texto['mil'] = "";
-    $medio_dm = bloque_10000($saldo);
-    $texto['decenas_mil'] = $medio_dm['texto'];
-    $medio_um = bloque_1000($medio_dm['numero']);
-    $texto['unidades_mil'] = $medio_um['texto'];
-    $medio_c = bloque_100($medio_um['numero']);
-    $texto['centena'] = $medio_c['texto'];
-    $medio_d = bloque_10($medio_c['numero']);
-    $texto['decenas'] = $medio_d['texto'];
-    $medio_u = bloque_0($medio_d['numero']);
-    $texto['unidades'] = $medio_u['texto'];
+	$texto['mil'] = " ";
+	$medio_dm = bloque_10000($saldo);
+	$texto['decenas_mil'] = $medio_dm['texto'];
+	$medio_um = bloque_1000($medio_dm['numero']);
+	$texto['unidades_mil'] = $medio_um['texto'];
+	$medio_c = bloque_100($medio_um['numero']);
+	$texto['centenas'] = $medio_c['texto'];
+	$medio_d = bloque_10($medio_c['numero']);
+	$texto['decenas'] = $medio_d['texto'];
+	$medio_u = bloque_0($medio_d['numero']);
+	$texto['unidades'] = $medio_u['texto'];
     return $texto;
 }
 
