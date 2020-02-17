@@ -27,6 +27,8 @@ function algoritmo_saldo($saldo) {
         // $texto = ["decenas_mil", "unidades_mil", "mil", "centenas", "decenas", "unidades"];
         if ($saldo == 1000) {
             $texto = caso_especial_mil();
+        } elseif ($saldo > 999 && $saldo < 1999) {
+            $texto = blq_Sup_999_especial($saldo);
         } elseif ($saldo > 999) {
             $texto = blq_Sup_999($saldo);
         } else {
@@ -47,6 +49,21 @@ function caso_especial_mil() {
 function caso_especial_cero() {
     $texto = ["decenas_mil" => "", "unidades_mil" => "", "mil" => "",
         "centenas" => "", "decenas" => "", "unidades" => "cero"];
+    return $texto;
+}
+
+function blq_Sup_999_especial($saldo) {
+    $texto['mil'] = "mil ";
+    $medio_dm = bloque_10000($saldo);
+    $texto['decenas_mil'] = " ";
+    $medio_um = bloque_1000($medio_dm['numero']);
+    $texto['unidades_mil'] = " ";
+    $medio_c = bloque_100($medio_um['numero']);
+    $texto['centenas'] = $medio_c['texto'];
+    $medio_d = bloque_10($medio_c['numero']);
+    $texto['decenas'] = $medio_d['texto'];
+    $medio_u = bloque_0($medio_d['numero']);
+    $texto['unidades'] = $medio_u['texto'];
     return $texto;
 }
 
@@ -243,7 +260,7 @@ function rango_especial_20($saldo) {
         $salida['texto'] = "veinte ";
         $salida['numero'] = 0;
     } elseif ($saldo == 21) {
-        $salida['texto'] = "ventiuno ";
+        $salida['texto'] = "ventiun ";
         $salida['numero'] = 0;
     } elseif ($saldo == 22) {
         $salida['texto'] = "ventidos ";
@@ -286,7 +303,7 @@ function bloque_0($saldo) {
     } elseif ($saldo == 6) {
         $salida['texto'] = "seis ";
     } elseif ($saldo == 7) {
-        $salida['texto'] = "siente ";
+        $salida['texto'] = "siete ";
     } elseif ($saldo == 8) {
         $salida['texto'] = "ocho ";
     } elseif ($saldo == 9) {
@@ -337,7 +354,7 @@ function rango_20000($saldo) {
         $salida['texto'] = "veinte ";
         $saldo -= 20000;
     } elseif ($saldo >= 21000 && $saldo <= 21999) {
-        $salida['texto'] = "ventiuno ";
+        $salida['texto'] = "ventiun ";
         $saldo -= 21000;
     } elseif ($saldo >= 22000 && $saldo <= 22999) {
         $salida['texto'] = "ventidos ";
